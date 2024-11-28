@@ -2,9 +2,30 @@ import React, {useState } from "react";
 
 const Main = () => {
   const [newItem , setNewItem]= useState();
+  const [items, setItems]= useState([]);
+
   const addItem=()=>{
-    console.log(newItem);
+    if(!newItem ){
+      alert("add new item");
+      return
+    }
+    const item ={
+      id: Math.floor(Math.random()*100) ,
+      value:newItem
+    };
+    setItems(oldlist => [item ,...oldlist]);
+    setNewItem("");
+    console.log(items);
     
+    
+  }
+  const deletItem =(id)=>{
+const newArray =items.filter(item => item.id !==id)
+setItems(newArray);
+  }
+  const editItem =(id)=>{
+  console.log(id);
+  
   }
   return (
    <div>
@@ -18,8 +39,13 @@ const Main = () => {
     </div>
     <div className="justify-self-center ">
       <ul>
-        <li>take out</li>
-        <li>Lorem ipsum dolor sit amet.</li>
+        {items.map((item)=>{
+          return(
+            <li key={item.id}>{item.value} <button onClick={()=>deletItem(item.id)}>deletItem</button> 
+            <button onClick={()=>editItem(item.id)}>editItem</button>
+            </li>
+          )
+        })}
       </ul>
     </div>
    </div>
