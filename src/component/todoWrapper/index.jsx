@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ToDoForm from '../todoForm';
 
-const ToDoWrapper
- = () => {
+const ToDoWrapper= () => {
+    const [ todos , setTodos]=useState([]);
+    const addTodo=(todo)=>{
+        setTodos([{id:Math.random(),task:todo ,completed:false ,editing:false},...todos])
+    }
   return (
-    <div>ToDoWrapper
-
+    <div>
+        <ToDoForm addTodo={addTodo}/>
     </div>
   )
 }
