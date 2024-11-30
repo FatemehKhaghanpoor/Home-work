@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ToDoForm from "../todoForm";
 import ToDo from "../todo/idex";
 import EditToDoForm from "../editToDoForm";
+import { ThemeContext } from "../../context/theme-provider";
 
 const ToDoWrapper = () => {
   const [todos, setTodos] = useState([]);
   const randomKey = Math.floor(Math.random() * 1000);
+  const { isDark } = useContext(ThemeContext);
 
   const addTodo = (todo) => {
+    if (todo === "") {
+      alert("enter a task");
+      return;
+    }
     setTodos([...todos, { id: randomKey, task: todo, editing: false }]);
-    console.log(todos);
   };
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -29,7 +34,11 @@ const ToDoWrapper = () => {
     );
   };
   return (
-    <div className="">
+    <div
+      className={`   w-full h-lvh p-8   ${
+        isDark ? "bg-amber-950" : "bg-orange-600"
+      } `}
+    >
       <ToDoForm addTodo={addTodo} />
       {todos.map((todo, index) =>
         todo.editing ? (

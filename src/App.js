@@ -1,20 +1,17 @@
-
 import ToDoWrapper from "./component/todoWrapper";
-
-
-
+import "./index.css";
+import ThemeProvider from "./context/theme-provider";
+import Header from "./component/header";
 
 function App() {
   return (
-    <div>
+    <div >
       
-    
-        
-        
-          <ToDoWrapper/>
-        
      
-  
+      <ThemeProvider>
+        <Header/>
+        <ToDoWrapper />
+      </ThemeProvider>
     </div>
   );
 }
