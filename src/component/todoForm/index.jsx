@@ -20,7 +20,7 @@ const ToDoForm = ({ addTodo }) => {
       <form onSubmit={handleSubmit} className="bg-orange-400 w-11/12">
         <input
           type="text"
-          className="w-64 justify-self-center "
+          className="w-80 ml-24 mt-4  justify-self-center"
           placeholder="what is the task to day?"
           value={value}
           onChange={(e) => {
@@ -29,7 +29,7 @@ const ToDoForm = ({ addTodo }) => {
           }}
         />
         <div className="flex justify-end">
-          {" "}
+         
           <Button title={"Add Task"} />
         </div>
       </form>
