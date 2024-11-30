@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Button from '../botton'
 
-const EditToDoForm = () => {
+
+const EditToDoForm = ({editToDo ,task}) => {
+    const [value , setValue]= useState(task.task); 
+    
+    const handleSubmit= (e)=>{
+        e.preventDefault();
+        editToDo(value , task.id );
+        setValue("")
+        
+    }
   return (
-    <div>EditToDoForm</div>
+    <form onSubmit={handleSubmit}>
+    <input type="text" placeholder={"Update task"} value={value} onChange={(e)=>{setValue(e.target.value) }} /> 
+    <Button  title={"Update task"}/>
+</form>
+
   )
 }
 
-export default EditToDoForm
+export default EditToDoForm;
