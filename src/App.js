@@ -1,19 +1,13 @@
-import ToDoWrapper from "./component/todoWrapper";
+import React from "react";
 import "./index.css";
-import ThemeProvider from "./context/theme-provider";
-import Header from "./component/header";
+import MyForm from "./component/form";
+
 
 function App() {
   return (
-    <div >
-      
-     
-      <ThemeProvider>
-        <Header/>
-        <ToDoWrapper />
-      </ThemeProvider>
-    </div>
+   <MyForm/>
   );
 }
+
 
 export default App;
