@@ -30,19 +30,13 @@ const SelectCity = () => {
     SetListOfSubCity(subCityArray);
   }, []);
 
-  
-
   const [MainCity, SetMainCity] = useState([]);
   const [listOfSubCity, SetListOfSubCity] = useState([]);
   const [selectedSubCity, SetSelectedSubCity] = useState([]);
   let selectedCityIndex = 0;
   const onSubmit = (userData) => {
-   
     console.log(userData);
-    setValue('subCity',"")
-   
-   
-
+    setValue("subCity", "");
   };
 
   return (
@@ -52,7 +46,9 @@ const SelectCity = () => {
           <div className="bg-white w-auto h-96 mx-5 mt-20 rounded-lg ">
             {/*header */}
             <div className="h-28 flex justify-center items-center  shadow">
-              <p className="uppercase font-bold text-4xl">شهر خود را انتخاب کنید </p>
+              <p className="uppercase font-bold text-4xl">
+                شهر خود را انتخاب کنید{" "}
+              </p>
             </div>
             {/* body*/}
             <div className="grid  justify-center mt-14 ">
@@ -66,21 +62,13 @@ const SelectCity = () => {
                   {...register("mainCity", { required: true })}
                   aria-invalid={errors.mainCity ? "true" : "false"}
                   onChange={(e) => {
-                   
                     selectedCityIndex = MainCity.indexOf(e.target.value);
 
                     SetSelectedSubCity(listOfSubCity[selectedCityIndex]);
-                    
-                                  
-               
-                    
                   }}
-                  
                 >
                   <option value="">یک مورد را انتخاب کنید </option>
                   {MainCity.map((item) => {
-                  
-
                     return <option key={item}>{item}</option>;
                   })}
 
@@ -96,17 +84,12 @@ const SelectCity = () => {
                     errors.subCity &&
                     "focus:border-red-500 focus:ring-red-500 border-red-500 "
                   }`}
-              
                   {...register("subCity", { required: true })}
                   aria-invalid={errors.subCity ? "true" : "false"}
-
                   onChange={(e) => {
-                   
-                    
-                    setValue('subCity', e.target.value, { shouldValidate: true })
-                                  
-               
-                    
+                    setValue("subCity", e.target.value, {
+                      shouldValidate: true,
+                    });
                   }}
                 >
                   <option value="">یک مورد را انتخاب کنید </option>
