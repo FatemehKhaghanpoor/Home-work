@@ -1,11 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./index.css";
-import MyForm from "./component/form";
+import SelectCity from "./component/selectCity";
+
+
 
 
 function App() {
   return (
-   <MyForm/>
+<Fragment>
+  <SelectCity/>
+</Fragment>
   );
 }
 
