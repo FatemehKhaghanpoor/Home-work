@@ -34,7 +34,7 @@ function App() {
      
     <Box sx={{display:"flex", direction:"row", gap:3}} >
     <Grid2 container spacing={2}>
-    {cardList.map((item)=><MyCards image={item.image} key={item.id}/>) }
+    {cardList.map((item)=><MyCards info={item} key={item.id}/>) }
     </Grid2>
     </Box>
     

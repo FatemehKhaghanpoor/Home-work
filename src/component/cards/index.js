@@ -1,7 +1,15 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid2, Typography } from '@mui/material';
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../store/actions/shopaction';
 
-const MyCards = ({image }) => {
+const MyCards = ({info }) => {
+  // const shopList =useSelector((state)=>state.shopList)
+  const dispatch =useDispatch()
+  
+  const handleShop =(e,cardId)=>{
+    dispatch(addItem(cardId))
+  }
   return (
     <Grid2 size={{ xs: 12, md: 4 }}>
     <Card sx={{ maxWidth: 345 }}>
@@ -13,21 +21,20 @@ const MyCards = ({image }) => {
             width:{sx:250 ,md:320}
           }}
           
-          image={image}
+          src={info.image}
           alt
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {info.title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+           {info.caption}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={(e)=>{handleShop(e, info.id)}}>
           Shop
         </Button>
       </CardActions>
