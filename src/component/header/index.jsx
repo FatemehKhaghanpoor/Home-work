@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import BadgeComponent from './badge';
 
- function HeaderComponent() {
+ function HeaderComponent({toggleDrawer}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,7 +25,7 @@ import BadgeComponent from './badge';
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
-        <BadgeComponent/>
+        <BadgeComponent toggleDrawer={toggleDrawer}/>
         </Toolbar>
       </AppBar>
     </Box>

@@ -7,11 +7,19 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 
- function BadgeComponent() {
-    const shopList =useSelector((state)=>state.shopList.items)
+ function BadgeComponent({toggleDrawer}) {
+    const shopList =useSelector((state)=>state.shopList.item);
+
+    const countShop = shopList.reduce((sum,curr)=>{
+      return( sum+=curr.count);
+     },0);
+    
+     
+    
+    
   return (
-    <IconButton aria-label="cart">
-      <Badge badgeContent={shopList?.length} color="warning">
+    <IconButton aria-label="cart" onClick={toggleDrawer(true)}>
+      <Badge badgeContent={countShop} color="warning">
         <ShoppingCartIcon />
       </Badge>
     </IconButton>
