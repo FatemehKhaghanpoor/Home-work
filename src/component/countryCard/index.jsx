@@ -8,7 +8,7 @@ import { country } from '../main';
 
 const CardCountry = ({keyCountry}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{  maxWidth: 345 }}>
     <CardMedia
       sx={{ height: 140 }}
       image={country[keyCountry].flags.png}
