@@ -1,62 +1,46 @@
-import React from "react";
+import React, { Fragment} from "react";
+import { URL } from "../../constant";
+import CardCountry from "../countryCard";
+import { Box, Grid2 } from "@mui/material";
+let response = await fetch(URL);
+ export const country= await response.json()
+
+console.log(typeof(Object.keys(country)));
+console.log(country[1]);
+const countyArray =Object.keys(country);
+// console.log(country[0].name.common);
+// console.log(typeof(country[0]))
+// console.log(country[0].name.common);
+
+
+// console.log(Object.keys(country[0]));
+
+
 
 const Main = () => {
+ 
   return (
-    <div className="p-4">
-      <div className="">
-        <div>
-          <div>
-            <h3 className="text-lg font-semibold text-red-950 border-b-4 border-orange-900 mt-4 ">
-              {" "}
-              About Me
-            </h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
-              repellendus beatae aliquid enim at dicta? Quidem nihil voluptatum
-              quam odio neque, necessitatibus veritatis assumenda iusto?
-            </p>
-          </div>
-          <div className="mt-10">
-            <h3 className="text-lg font-semibold text-red-950 border-b-4 border-orange-900 mt-4 ">
-              {" "}
-              Professional Experience
-            </h3>
-            <div>
-              <h3 className="text-lg font-semibold">Lorem ipsum dolor sit amet consectetur.</h3>
-              <h4 className="font-medium">2021 Lorem, ipsum dolor.</h4>
-              <h4 className="font-medium">Lorem ipsum dolor sit amet.</h4>
-              <ul class="p-4 list-disc">
-                <li>got flipped-turned upside down</li>
-                <li>got flipped-turned upside down</li>
-                <li>got flipped-turned upside down</li>
-              </ul>
-            </div>
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold">Lorem ipsum dolor sit amet consectetur.</h3>
-              <h4 className="font-medium">2021 Lorem, ipsum dolor.</h4>
-              <h4 className="font-medium">Lorem ipsum dolor sit amet.</h4>
-              <ul class="p-4 list-disc">
-                <li>got flipped-turned upside down</li>
-                <li>got flipped-turned upside down</li>
-                <li>got flipped-turned upside down</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-10">
-            <h3 className="text-lg font-semibold text-red-950 border-b-4 border-orange-900 mt-4 ">
-              {" "}
-              Project
-            </h3>
-            <div>
-              <h3 className="text-lg font-semibold">Lorem, ipsum dolor..</h3>
-              <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, quos?.</p>
-              <h3 className="text-lg font-semibold">Lorem ipsum dolor sit.</h3>
-              <p className="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, est illo.</p>
-             </div>
-            </div>
-        </div>
-      </div>
-    </div>
+   <Fragment> 
+    <Box
+   sx={{ flexGrow: 1 }}>
+      <Grid2 container spacing={2}>
+     {
+      countyArray.map((key)=>(
+ <Grid2 size={3} key={key}>
+               <CardCountry  keyCountry={key}/> 
+         </Grid2> 
+      ))
+     }
+           
+ 
+        
+        
+        </Grid2>
+        </Box>
+  
+   
+   </Fragment > 
+   
   );
 };
 export default Main;
