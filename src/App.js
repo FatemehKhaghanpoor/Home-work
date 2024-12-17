@@ -1,20 +1,24 @@
-import Main from "./component/main";
+import { Container } from "@mui/material";
+
 
 
 import "./index.css";
+import { Routes, Route } from "react-router";
+
+import { HOME_ROUTE, INFO_ROUTE } from "./constant/routes";
+import Home from "./pages/home";
+import Info from "./pages/information";
+import HeaderComponent from "./component/header";
 
 function App() {
   return (
-    <div>
-     
-      <div className="grid grid-cols-3 gap-2 gap-x-2 gap-y-3 ">
-        
-        <div className="border-slate-400 rounded-lg shadow-xl  col-span-3 md:col-span-2 ">
-          <Main />
-        </div>
-      </div>
-      
-    </div>
+    <Container>
+      <HeaderComponent/>
+      <Routes>
+      <Route path={HOME_ROUTE} element={<Home />} />
+      <Route path={INFO_ROUTE} element={<Info />} />
+      </Routes>
+    </Container>
   );
 }
 

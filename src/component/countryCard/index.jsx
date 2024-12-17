@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import { country } from '../main'; 
+import { country } from '../../pages/home'; 
 
 const CardCountry = ({keyCountry}) => {
   return (
@@ -12,7 +12,7 @@ const CardCountry = ({keyCountry}) => {
     <CardMedia
       sx={{ height: 140 }}
       image={country[keyCountry].flags.png}
-      title="green iguana"
+      title={country[keyCountry].name.common}
     />
     <CardContent>
       <Typography gutterBottom variant="h5" component="div">
